@@ -1,0 +1,13 @@
+services:
+  db:
+    image: postgres:16.3
+    restart: always
+    ports:
+      - '${PG_PORT}:5432'
+    environment:
+      POSTGRES_USER: ${PG_USER}
+      POSTGRES_PASSWORD: ${PG_PASSWORD}
+      POSTGRES_DB: ${PG_DB}
+    container_name: simphony-technical-test
+    volumes:
+      - .postgres-db:/var/lib/postgresql/data
